@@ -1,4 +1,4 @@
 Android
 =======
 
-Apps realizadas con android
+Pequeñas aplicaciones realizadas con Android.
