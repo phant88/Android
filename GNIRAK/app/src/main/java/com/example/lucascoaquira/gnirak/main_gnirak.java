@@ -2,6 +2,7 @@ package com.example.lucascoaquira.gnirak;
 
 import java.util.Locale;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBar;
 import android.support.v4.app.Fragment;
@@ -16,6 +17,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 
@@ -35,20 +37,27 @@ public class main_gnirak extends ActionBarActivity {
      * The {@link ViewPager} that will host the section contents.
      */
     ViewPager mViewPager;
-
+    Button btn_Hello;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_gnirak);
-
+        btn_Hello = (Button) findViewById(R.id.hello_btn_ui);
 
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
-        mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
+        //mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
 
         // Set up the ViewPager with the sections adapter.
-        mViewPager = (ViewPager) findViewById(R.id.pager);
-        mViewPager.setAdapter(mSectionsPagerAdapter);
+       // mViewPager = (ViewPager) findViewById(R.id.pager);
+        //mViewPager.setAdapter(mSectionsPagerAdapter);
+
+    }
+
+
+    public void goToMain(View view){
+        Intent intent = new Intent(this, null);
+        startActivity(intent);
 
     }
 
@@ -56,7 +65,7 @@ public class main_gnirak extends ActionBarActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main_gnirak, menu);
+        //getMenuInflater().inflate(R.menu.menu_main_gnirak, menu);
         return true;
     }
 

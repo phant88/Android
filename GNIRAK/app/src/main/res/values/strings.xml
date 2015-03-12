@@ -1,12 +1,15 @@
 <resources>
-    <string name="app_name">GNIRAK</string>
+    <string name="app_name">Alpakazz</string>
 
 
     <string name="title_section1">Section 1</string>
     <string name="title_section2">Section 2</string>
     <string name="title_section3">Section 3</string>
 
-    <string name="hello_world">Hello world!</string>
+    <string name="hello_world">Bienvenida Karing!</string>
 
     <string name="action_settings">Settings</string>
+    <string name="hello_btn">Aceptar</string>
+    <string name="hello_msg">¿Lista para tener una experiencia única?</string>
 </resources>
+

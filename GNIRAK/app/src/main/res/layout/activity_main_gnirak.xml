@@ -1,4 +1,48 @@
-<android.support.v4.view.ViewPager xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:id="@+id/pager"
-    android:layout_width="match_parent" android:layout_height="match_parent"
-    tools:context=".main_gnirak" />
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:weightSum="1"
+    android:background="@drawable/bg"
+    android:backgroundTintMode="multiply"
+    android:baselineAligned="false">
+
+
+    <TextView
+
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/hello_world"
+        android:id="@+id/textView"
+        android:layout_marginTop="50dp"
+        android:textColor="#fff7fdff"
+        android:textAlignment="center"
+        android:textSize="30dp"
+        android:textIsSelectable="false"
+        android:typeface="monospace" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="@string/hello_msg"
+        android:id="@+id/textView2"
+        android:layout_gravity="center_horizontal"
+        android:textSize="25dp"
+        android:textIsSelectable="true"
+        android:textColorHighlight="#ffffb05a"
+        android:textColor="#fffeff16"
+        android:textAlignment="center" />
+
+    <Button
+        android:layout_width="106dp"
+        android:layout_height="wrap_content"
+        android:text="@string/hello_btn"
+        android:id="@+id/hello_btn_ui"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="0.07"
+        android:onClick="goToMain"/>
+</LinearLayout>
