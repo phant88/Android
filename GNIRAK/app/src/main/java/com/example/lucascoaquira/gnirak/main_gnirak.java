@@ -56,7 +56,7 @@ public class main_gnirak extends ActionBarActivity {
 
 
     public void goToMain(View view){
-        Intent intent = new Intent(this, null);
+        Intent intent = new Intent(this, index_gnirak.class);
         startActivity(intent);
 
     }
