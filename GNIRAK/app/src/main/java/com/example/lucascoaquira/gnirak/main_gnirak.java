@@ -3,6 +3,9 @@ package com.example.lucascoaquira.gnirak;
 import java.util.Locale;
 
 import android.content.Intent;
+import android.graphics.Typeface;
+import android.graphics.drawable.Drawable;
+import android.media.Image;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBar;
 import android.support.v4.app.Fragment;
@@ -18,6 +21,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 
@@ -37,25 +41,36 @@ public class main_gnirak extends ActionBarActivity {
      * The {@link ViewPager} that will host the section contents.
      */
     ViewPager mViewPager;
-    Button btn_Hello;
+    TextView txtWelcome;
+    ImageButton imgBtn;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_gnirak);
-        btn_Hello = (Button) findViewById(R.id.hello_btn_ui);
+        txtWelcome = (TextView) findViewById(R.id.txtWelcome);
+        Typeface customFont = Typeface.createFromAsset(getAssets(), "fonts/Sweet Smile.ttf");
+        txtWelcome.setTypeface(customFont);
+        imgBtn = (ImageButton) findViewById(R.id.imgBtnLobo);
+        imgBtn.setOnTouchListener(new TouchListener());
+
+        findViewById(R.id.imgBtnOveja).setOnTouchListener(new TouchListener());
+
+        findViewById(R.id.dropLayout).setOnDragListener(new DragListenerWelcome(getResources().getDrawable(R.drawable.shape),
+                getResources().getDrawable(R.drawable.shape_droptarget)));
 
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
         //mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
 
         // Set up the ViewPager with the sections adapter.
-       // mViewPager = (ViewPager) findViewById(R.id.pager);
+        // mViewPager = (ViewPager) findViewById(R.id.pager);
         //mViewPager.setAdapter(mSectionsPagerAdapter);
 
     }
 
 
-    public void goToMain(View view){
+    public void goToMain(View view) {
         Intent intent = new Intent(this, index_gnirak.class);
         startActivity(intent);
 

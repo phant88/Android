@@ -12,5 +12,6 @@
     <string name="hello_btn">Aceptar</string>
     <string name="hello_msg">¿Lista para tener una experiencia única?</string>
     <string name="title_activity_index_gnirak">index_gnirak</string>
+    <string name="welcome_msg">Une ambas imagenes para poder continuar</string>
 </resources>
 
