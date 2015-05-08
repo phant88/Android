@@ -7,19 +7,20 @@
 
     <!-- Thumbnail Image -->
     <ImageView
-        android:id="@+id/thumbnail"
+        android:id="@+id/btnPlayer"
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:layout_alignParentLeft="true"
-        android:layout_marginRight="8dp" />
+        android:layout_marginRight="8dp"
+        android:background="@drawable/buttonplay" />
 
     <!-- Movie Title -->
     <TextView
-        android:id="@+id/title"
+        android:id="@+id/titleAudio"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/thumbnail"
-        android:layout_toRightOf="@+id/thumbnail"
+        android:layout_alignTop="@+id/btnPlayer"
+        android:layout_toRightOf="@+id/btnPlayer"
         android:textSize="@dimen/title"
         android:textStyle="bold"
         android:textColor="@android:color/holo_green_light"
@@ -27,12 +28,12 @@
 
     <!-- Rating -->
     <TextView
-        android:id="@+id/description"
+        android:id="@+id/descriptionAudio"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/title"
+        android:layout_below="@id/titleAudio"
         android:layout_marginTop="1dip"
-        android:layout_toRightOf="@+id/thumbnail"
+        android:layout_toRightOf="@+id/btnPlayer"
         android:textSize="@dimen/rating"
         android:textColor="@android:color/background_light"/>
 

@@ -1,12 +1,11 @@
 package com.example.lucascoaquira.gnirak;
 
-import android.support.v7.app.ActionBarActivity;
+import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 
 
-public class index_gnirak extends ActionBarActivity {
+public class index_gnirak extends FragmentActivity {
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -14,19 +13,4 @@ public class index_gnirak extends ActionBarActivity {
         setContentView(R.layout.activity_index_gnirak);
     }
 
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
 }

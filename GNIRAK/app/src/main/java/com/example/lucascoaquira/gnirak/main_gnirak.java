@@ -1,7 +1,11 @@
 package com.example.lucascoaquira.gnirak;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Locale;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
@@ -22,7 +26,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 public class main_gnirak extends ActionBarActivity {
@@ -43,6 +50,7 @@ public class main_gnirak extends ActionBarActivity {
     ViewPager mViewPager;
     TextView txtWelcome;
     ImageButton imgBtn;
+    List<LoveData> loveItems;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,11 +62,45 @@ public class main_gnirak extends ActionBarActivity {
         imgBtn = (ImageButton) findViewById(R.id.imgBtnLobo);
         imgBtn.setOnTouchListener(new TouchListener());
 
+        ListView lstLove = (ListView) findViewById(R.id.listLove);
+        loveItems = new ArrayList<LoveData>();
+        lstLove.setAdapter(new CustomListAdapter(loveItems, this));
+
         findViewById(R.id.imgBtnOveja).setOnTouchListener(new TouchListener());
+        findViewById(R.id.imgBtnLobo).setOnTouchListener(new TouchListener());
 
         findViewById(R.id.dropLayout).setOnDragListener(new DragListenerWelcome(getResources().getDrawable(R.drawable.shape),
-                getResources().getDrawable(R.drawable.shape_droptarget)));
+                getResources().getDrawable(R.drawable.shape_droptarget),loveItems));
 
+        findViewById(R.id.imgLock).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(main_gnirak.this);
+                dialogBuilder.setMessage("¿Aceptas desde este momento continuar un camino juntos?");
+                dialogBuilder.setCancelable(true);
+                dialogBuilder.setPositiveButton("Sí, Acepto", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Toast msgAceptar = Toast.makeText(main_gnirak.this, "Estaremos juntos siempre", Toast.LENGTH_LONG);
+                        msgAceptar.show();
+                        Intent intent = new Intent(main_gnirak.this,index_gnirak.class);
+                        startActivity(intent);
+                    }
+                });
+
+                dialogBuilder.setNegativeButton("No acepto", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Toast msgAceptar = Toast.makeText(main_gnirak.this, "Hubiera sido genial, que pena", Toast.LENGTH_LONG);
+                        msgAceptar.show();
+                    }
+                });
+
+                AlertDialog dialogLove = dialogBuilder.create();
+                dialogLove.show();
+            }
+        });
+        findViewById(R.id.imgLock).setClickable(false);
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
         //mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());

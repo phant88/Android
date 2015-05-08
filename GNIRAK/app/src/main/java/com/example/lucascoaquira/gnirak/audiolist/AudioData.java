@@ -1,16 +1,14 @@
-package com.example.lucascoaquira.gnirak;
-
-import java.util.ArrayList;
+package com.example.lucascoaquira.gnirak.audiolist;
 
 /**
  * Created by Lucas Coaquira on 06/04/2015.
  */
-public class LoveData {
+public class AudioData {
     private String title;
     private String description;
     private Integer imageID;
 
-    public LoveData(String title, String description, Integer imageID) {
+    public AudioData(String title, String description, Integer imageID) {
         this.title = title;
         this.description = description;
         this.imageID = imageID;
