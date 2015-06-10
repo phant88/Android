@@ -27,8 +27,8 @@
             android:layout_alignTop="@+id/playerBtn"
             android:layout_toRightOf="@+id/playerBtn"
             android:text="@string/TitleRadio"
-            android:textSize="17sp"
-            android:textColor="#ff4f4f4f" />
+            android:layout_marginTop="20dp"
+            android:textSize="17sp" />
 
         <TextView
             android:id="@+id/songName"

@@ -1,27 +1,18 @@
 package com.example.lucascoaquira.gnirak.dropbox;
 
-import android.content.ActivityNotFoundException;
+import android.app.Fragment;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
-import android.graphics.Bitmap;
 import android.net.Uri;
-import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.Environment;
-import android.os.Handler;
-import android.provider.MediaStore;
-import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.dropbox.client2.DropboxAPI;
@@ -32,13 +23,6 @@ import com.dropbox.client2.session.AppKeyPair;
 import com.example.lucascoaquira.gnirak.R;
 
 import java.io.File;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Locale;
-import java.util.concurrent.ScheduledExecutorService;
-import java.util.concurrent.ScheduledThreadPoolExecutor;
-import java.util.concurrent.TimeUnit;
 
 
 /**
@@ -106,11 +90,6 @@ public class PhotoRoulette extends Fragment {
 
         checkAppKeySetup();
 
-        // This logs you out if you're logged in, or vice versa
-        /*if (mLoggedIn) {
-            logOut();
-        } else {*/
-        // Start the remote authentication
         if (!mLoggedIn) {
             if (USE_OAUTH1) {
                 mApi.getSession().startAuthentication(photoView.getContext());
@@ -118,12 +97,11 @@ public class PhotoRoulette extends Fragment {
                 mApi.getSession().startOAuth2Authentication(photoView.getContext());
             }
         }
-        //}
-
-        //mDisplay = (RelativeLayout) photoView.findViewById(R.id.rouletteLayout);
-
         // This is where a photo is displayed
         mImage = (ImageView) photoView.findViewById(R.id.photo);
+        RandomImage download = new RandomImage(photoView.getContext(), mApi, PHOTO_DIR, mImage);
+        download.execute();
+
         mImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -131,6 +109,9 @@ public class PhotoRoulette extends Fragment {
                 download.execute();
             }
         });
+
+        mImage.setImageResource(R.drawable.juntos);
+
         // This is the button to take a photo
       /*  mPhoto = (ImageButton) photoView.findViewById(R.id.btnCamera);
 
@@ -166,6 +147,12 @@ public class PhotoRoulette extends Fragment {
         // Display the proper UI state if logged in or not
         setLoggedIn(mApi.getSession().isLinked());
         return photoView;
+    }
+
+    public void cargarImagenDropBox(){
+        RandomImage download = new RandomImage(photoView.getContext(), mApi, PHOTO_DIR, mImage);
+        download.execute();
+        Log.e("DROPBOX","Cargando Imagen");
     }
 
 

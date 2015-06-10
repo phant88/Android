@@ -8,17 +8,15 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Typeface;
-import android.graphics.drawable.Drawable;
-import android.media.Image;
 import android.support.v7.app.ActionBarActivity;
-import android.support.v7.app.ActionBar;
+
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
+
 import android.support.v4.app.FragmentPagerAdapter;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
-import android.view.Gravity;
+
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -55,6 +53,7 @@ public class main_gnirak extends ActionBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        utilCodes.getInstace(this);
         setContentView(R.layout.activity_main_gnirak);
         txtWelcome = (TextView) findViewById(R.id.txtWelcome);
         Typeface customFont = Typeface.createFromAsset(getAssets(), "fonts/Sweet Smile.ttf");
@@ -70,11 +69,12 @@ public class main_gnirak extends ActionBarActivity {
         findViewById(R.id.imgBtnLobo).setOnTouchListener(new TouchListener());
 
         findViewById(R.id.dropLayout).setOnDragListener(new DragListenerWelcome(getResources().getDrawable(R.drawable.shape),
-                getResources().getDrawable(R.drawable.shape_droptarget),loveItems));
+                getResources().getDrawable(R.drawable.shape_droptarget), loveItems));
 
         findViewById(R.id.imgLock).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(main_gnirak.this);
                 dialogBuilder.setMessage("¿Aceptas desde este momento continuar un camino juntos?");
                 dialogBuilder.setCancelable(true);
@@ -83,7 +83,8 @@ public class main_gnirak extends ActionBarActivity {
                     public void onClick(DialogInterface dialog, int which) {
                         Toast msgAceptar = Toast.makeText(main_gnirak.this, "Estaremos juntos siempre", Toast.LENGTH_LONG);
                         msgAceptar.show();
-                        Intent intent = new Intent(main_gnirak.this,index_gnirak.class);
+                        Intent intent = new Intent(main_gnirak.this, index_gnirak.class);
+                        utilCodes.getInstace(main_gnirak.this).savePreference(utilCodes.ACEPTO_RELACION, "SI");
                         startActivity(intent);
                     }
                 });
@@ -93,11 +94,13 @@ public class main_gnirak extends ActionBarActivity {
                     public void onClick(DialogInterface dialog, int which) {
                         Toast msgAceptar = Toast.makeText(main_gnirak.this, "Hubiera sido genial, que pena", Toast.LENGTH_LONG);
                         msgAceptar.show();
+                        finish();
                     }
                 });
 
                 AlertDialog dialogLove = dialogBuilder.create();
                 dialogLove.show();
+
             }
         });
         findViewById(R.id.imgLock).setClickable(false);

@@ -52,8 +52,7 @@ public class RandomImage extends AsyncTask<Void, Long, Boolean> {
         mPath = dropboxPath;
         mView = view;
 
-        view.setImageResource(R.drawable.loader);
-       /* mDialog.setButton(ProgressDialog.BUTTON_POSITIVE, "Cancel", new DialogInterface.OnClickListener() {
+        /* mDialog.setButton(ProgressDialog.BUTTON_POSITIVE, "Cancel", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int which) {
                 mCanceled = true;
                 mErrorMsg = "Canceled";

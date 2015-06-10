@@ -2,8 +2,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="#efefef"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@drawable/blurred">
 
     <fragment
         android:id="@+id/topRadiofragment"
@@ -35,31 +35,12 @@
 
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <fragment
-            android:id="@+id/videoFragment"
-            android:name="com.example.lucascoaquira.gnirak.video.VideoFragment"
-            android:layout_width="200dp"
-            android:layout_height="150dp"
-            android:layout_below="@id/photoFragment"
-            tools:layout="@layout/video_player" />
-
-        <fragment
-            android:id="@+id/ListAudioFragment"
-            android:name="com.example.lucascoaquira.gnirak.audiolist.ListAudio"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            tools:layout="@layout/audio_list" />
-    </LinearLayout>
-
     <fragment
-        android:id="@+id/MenuFragment"
-        android:name="com.example.lucascoaquira.gnirak.menu.MenuFragment"
-        android:layout_width="wrap_content"
+        android:id="@+id/videoFragment"
+        android:name="com.example.lucascoaquira.gnirak.video.VideoFragment"
+        android:layout_width="fill_parent"
+        android:layout_marginTop="10dp"
         android:layout_height="wrap_content"
-        tools:layout="@layout/panel_menu"/>
+        android:layout_below="@id/photoFragment"
+        tools:layout="@layout/video_player" />
 </LinearLayout>

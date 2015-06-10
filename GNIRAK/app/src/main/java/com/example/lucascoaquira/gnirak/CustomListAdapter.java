@@ -49,10 +49,6 @@ public class CustomListAdapter extends BaseAdapter {
         if (convertView == null)
             convertView = inflater.inflate(R.layout.list_row_ly, null);
 
-        /*if (imageLoader == null)
-            imageLoader = AppController.getInstance().getImageLoader();
-        NetworkImageView thumbNail = (NetworkImageView) convertView
-                .findViewById(R.id.thumbnail);*/
         ImageView thumbNail = (ImageView) convertView.findViewById(R.id.thumbnail);
         TextView title = (TextView) convertView.findViewById(R.id.title);
         TextView description = (TextView) convertView.findViewById(R.id.description);
